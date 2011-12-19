@@ -7,10 +7,7 @@
 ;; Additional Scheme declaration files
 (setq scheme-decls '("scheme-format.el"))
 
-(let ((scheme-decls-dir
-       (concat user-emacs-directory
-	       (convert-standard-filename "lang/")
-	       (convert-standard-filename "scheme-decls/"))))
+(let ((scheme-decls-dir (convert-standard-filename "scheme-decls/")))
   (load-file-list scheme-decls scheme-decls-dir))
 
 ;; Use petite as the default Scheme program

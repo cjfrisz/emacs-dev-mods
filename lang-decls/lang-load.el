@@ -8,9 +8,9 @@
 (load "helpers.el")
 
 ;; The list of defined language files
-(setq lang-files '("c.el"
-		   "lisp.el"
-		   "scheme.el"))
+(setq lang-files '("c-decls.el"
+		   "lisp-decls.el"
+		   "scheme-decls.el"))
 
 
 ;; Perform the actual load
