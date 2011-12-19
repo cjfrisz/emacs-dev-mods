@@ -14,4 +14,4 @@
 ;;-- Scheme mode hooks --;;
 
 ;; Caps for the start of block comments
-(add-hook 'scheme-mode-hook '(lambda () (set 'block-comment-start ";;")))
+;; (add-hook 'scheme-mode-hook '(lambda () (set 'block-comment-start ";;")))
