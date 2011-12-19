@@ -3,7 +3,7 @@
 ;; laod-path variable
 
 ;; Use helpers.el for the "load-file-list" function
-(load-file "helpers.el")
+(load "helpers.el")
 
 ;; The list of custom elisp files
 (setq lisp-files '("file-doc.el"

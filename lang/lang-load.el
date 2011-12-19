@@ -5,7 +5,7 @@
 ;; This file uses the "load-file-list" function from helpers.el
 ;; Note that this requires its directory to be part of the load-path
 ;; variable
-(load-file "helpers.el")
+(load "helpers.el")
 
 ;; The list of defined language files
 (setq lang-files '("c.el"
