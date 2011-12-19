@@ -13,24 +13,25 @@
 ;; Custom load files ;;
 ;;-------------------;;
 
-;; Global and miscellaneous settings
-(let ((misc-decls (concat user-emacs-directory
-			 (convert-standard-filename "global.el"))))
-  (load-file misc-decls))
+;;-- Additional load-path directories
+
+;; emacs-user-directory for top-level of customized files
+(add-to-list 'load-path user-emacs-directory)
+;; lang directory for language-specific customizations
+(add-to-list 'load-path 
+	     (concat user-emacs-directory
+		     (convert-standard-filename "lang/")))
+;; lisp for custom-defined elisp functions
+(add-to-list 'load-path
+	     (concat user-emacs-directory
+		     (convert-standard-filename "lisp/")))
+
+;; Load global and miscellaneous settings (in top-level
+;; user-emacs-directory)
+(load "global.el")
 
 ;;-- Language-specific settings --;;
-(let ((lang-path (concat user-emacs-directory 
-			 (convert-standard-filename "lang/"))))
-  (let ((c-decls (concat lang-path 
-			 (convert-standard-filename "c.el")))
-	(scheme-decls (concat lang-path
-			      (convert-standard-filename "scheme.el"))))
-    (load-file c-decls)
-    (load-file scheme-decls)))
+(load "lang-load.el")
 
 ;;-- Custom functions --;;
-(let ((lisp-path (concat user-emacs-directory
-			 (convert-standard-filename "lisp/"))))
-  (let ((load-lisp (concat lisp-path
-			   (convert-standard-filename "load.el"))))
-    (load-file load-lisp)));; Test comment
+(load "lisp-load.el")
