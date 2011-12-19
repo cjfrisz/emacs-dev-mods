@@ -26,5 +26,4 @@
 (set 'fill-column 70)
 
 ;; Turn on auto-fill-mode for text mode
-(add-hook 'text-mode-hook 'text-mode-hook-identify)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
