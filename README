@@ -26,6 +26,7 @@ lang:
 	now the languages with customization files are as follows:
 
 		C
+		Lisp (including Emacs Lisp and Scheme)
 		Scheme
 
 lisp:
@@ -35,6 +36,11 @@ lisp:
 	load.el:
 		A simple file to load all the other scripts in the
 		directory. Also adds appropriate hooks as necessary.
+
+	helpers.el:
+		A set of functions useful across functions. By
+		convention I load this in any place that uses the
+		functions rather than depending on load order.
 
 	file-doc.el:
 		An interactive function, callable by "M-x
