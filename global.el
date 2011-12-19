@@ -18,3 +18,13 @@
 
 ;; Date format string
 (set 'custom-date-format "%e %b %Y")
+
+;; Default to text mode instead of Fundamental
+(setq default-major-mode 'text-mode)
+
+;; Set fill-column value explicitly
+(set 'fill-column 70)
+
+;; Turn on auto-fill-mode for text mode
+(add-hook 'text-mode-hook 'text-mode-hook-identify)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
