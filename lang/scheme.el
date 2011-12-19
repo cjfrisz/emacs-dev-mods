@@ -1,17 +1,17 @@
-;; Load additional declaration files
-(let ((scheme-load-path (concat user-emacs-directory
-				(convert-standard-filename "lang/")
-				(convert-standard-filename "scheme/"))))
-  (let ((scheme-format-file 
-	 (concat scheme-load-path
-		 (convert-standard-filename "scheme-format.el"))))
-      ;; Custom formatting for (sometimes non-standard) forms
-      (load-file scheme-format-file)))
+;;-- Load files --;;
+
+;; Use the load-file-list function from helpers.el, assumed to be in
+;; the load-path
+(load "helpers.el")
+
+;; Additional Scheme declaration files
+(setq scheme-decls '("scheme-format.el"))
+
+(let ((scheme-decls-dir
+       (concat user-emacs-directory
+	       (convert-standard-filename "lang/")
+	       (convert-standard-filename "scheme-decls/"))))
+  (load-file-list scheme-decls scheme-decls-dir))
 
 ;; Use petite as the default Scheme program
 (custom-set-variables '(scheme-program-name "petite"))
-
-;;-- Scheme mode hooks --;;
-
-;; Caps for the start of block comments
-;; (add-hook 'scheme-mode-hook '(lambda () (set 'block-comment-start ";;")))
