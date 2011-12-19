@@ -19,11 +19,18 @@
 ;; Date format string
 (set 'custom-date-format "%e %b %Y")
 
-;; Default to text mode instead of Fundamental
-(setq default-major-mode 'text-mode)
-
 ;; Set fill-column value explicitly
 (set 'fill-column 70)
 
 ;; Turn on auto-fill-mode for text mode
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;; Move auto-saves and backup files to the auto-save-list directory
+;; Modified from the EmacsWiki
+(let ((auto-save-directory 
+       (concat user-emacs-directory
+ 	       (convert-standard-filename "auto-save-list/"))))
+  (setq backup-directory-alist
+ 	`((".*" . ,auto-save-directory)))
+  (setq auto-save-file-name-transforms
+ 	`((".*" ,auto-save-directory t))))
