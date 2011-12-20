@@ -3,30 +3,21 @@ provides a number of global and programming-language customizations to
 Emacs, all of which are tested on Emacs 23 and should be compatible
 with Emacs 22 (though that hasn't been tested yet).
 
-There are four major components to this repository, listed as follows:
+There are two major components to this repository, listed as follows:
 
 .emacs:
 	The .emacs file used to load all of the contents of this
 	repository. It is assumed to be in the top-level user
 	directory. In other words, Emacs will not find this file
 	(without customization through *another* .emacs file) unless
-	it is placed outside this repository.
-
-global.el:
-	An Emacs Lisp file that loads global values (such as standard
-	time string formats used across different files) and
-	miscellaneous settings that don't belong anywhere.
-
-lang:
-	A directory containing per-programming-language customization
-	settings. This includes a .el file named for each language,
-	and for those that have additional files, they are included in
-	a directory named for the language. Customarily these
-	additional files are loaded by the main [lang].el file. As of
-	now the languages with customization files are as follows:
+	it is placed outside this repository. This file includes all
+	of the language-specific customizations that I use. Previously
+	these settings were kept in separate files in the "lang-decls"
+	directory, but there appeared to be some scoping issues
+	related to loading external files during the inititialization
+	process. The languages with customizations are as follows:
 
 		C
-		Lisp (including Emacs Lisp and Scheme)
 		Scheme
 
 lisp:
