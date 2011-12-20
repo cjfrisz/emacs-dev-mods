@@ -51,6 +51,9 @@
 ;; Set fill-column value explicitly
 (set 'fill-column 70)
 
+;; Default to text mode if nothing else overrides it
+(set-default 'major-mode 'text-mode)
+
 ;; Turn on auto-fill-mode for text mode
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -89,6 +92,18 @@
 
 ;; Use petite as the default Scheme program
 (custom-set-variables '(scheme-program-name "petite"))
+
+;; IU Scheme setup
+(autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
+(autoload 'run-scheme "iuscheme" "Switch to interactive Scheme buffer." t)
+
+;; Insane Scheme setup (balanced paren mode)
+(autoload 'balanced-toggle "balanced" "Toggle balanced ``mode''" t)
+(autoload 'balanced-on "balanced" "Turn on balanced ``mode''" t)
+(add-hook 'scheme-mode-hook 'balanced-on)
+
+;; Use auto-fill-mode for Scheme
+(add-hook 'scheme-mode-hook 'auto-fill-mode)
 
 ;; Teach Emacs how to properly indent
 ;; certain Scheme special forms
