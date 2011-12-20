@@ -17,6 +17,12 @@ be provided, assumed to be the path for all files in file-list."
 (defun insert-line (&rest line)
   "Insert a line followed by a newline character and moves the
 point according to the tab command."
-  (progn
-    (apply 'insert (append line '("\n")))
-    (indent-for-tab-command)))
+  (apply 'insert (append line '("\n"))))
+
+(defun add1 (n)
+  "Increment an integer value by one."
+  (+ n 1))
+
+(defun sub1 (n)
+  "Decrement an integer value by one."
+  (- n 1))

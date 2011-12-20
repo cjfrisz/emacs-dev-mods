@@ -2,8 +2,8 @@
   "Updates the modified date according to my standard format."
   (let ((modify-regexp 
 	 "Last modified [[:digit:]]+ [[:alpha:]]+ [[:digit:]]*")
-	(date (if (boundp 'custom-date-format)
-		  (format-time-string custom-date-format)
+	(date (if (boundp 'cjfrisz-date-format)
+		  (format-time-string cjfrisz-date-format)
 		(current-time-string)))
 	(start-point (point)))
     (progn
