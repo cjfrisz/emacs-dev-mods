@@ -1,3 +1,15 @@
+;;----------------------------------------------------------------------
+;; File update-modify.el
+;; Written by Chris Frisz
+;; 
+;; Created 17 Dec 2011
+;; Last modified 20 Dec 2011
+;; 
+;; Defines a function, update-modify, to update the modification date
+;; according to the standard format used by insert-file-doc. This can
+;; be used as a hook with the before-save-hook variable.
+;; ----------------------------------------------------------------------
+
 (defun update-modify ()
   "Updates the modified date according to my standard format."
   (let ((modify-regexp 

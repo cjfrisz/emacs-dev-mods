@@ -1,3 +1,13 @@
+;;----------------------------------------------------------------------
+;; File .emacs
+;; Written by Chris Frisz
+;; 
+;; Created 17 Dec 2011
+;; Last modified 20 Dec 2011
+;; 
+;; Initialization file for Emacs.
+;;----------------------------------------------------------------------
+
 ;; Backport the user-emacs-directory variable because sometimes I use Emacs 22
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/" ""))
@@ -67,22 +77,42 @@
   (setq auto-save-file-name-transforms
  	`((".*" ,auto-save-directory t))))
 
+;; --Experimental--
+;; Add a file header for all new files
+(add-hook 'find-file-not-found-hooks 'insert-file-doc)
+
+;; Highlight parentheses in all modes
+;; Taken from the EmacsWiki
+(require 'highlight-parentheses)
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
+
+
 ;;--------------------------------;;
 ;;-- Language-specific settings --;;
 ;;--------------------------------;;
 
-;;-- C --;;
+;;-- C/C++ --;;
 
 ;; Set the block comment beginning-of-line string
 (custom-set-variables '(c-block-comment-prefix "* "))
 
+;; I prefer auto-fill-mode for C/C++
+(add-hook 'c-mode-common-hook 'auto-fill-mode)
 
-;;-- Lisp --;;
+
+;;-- Lisp (including Emacs Lisp) --;;
 
 ;; Indentation rules
 ;; I really don't know why these aren't defined correctly
 (put 'case 'lisp-indent-function 1)
 (put 'if 'lisp-indent-function 3)
+
+;; Auto-fill-mode for Emacs Lisp is nice, too
+(add-hook 'emacs-lisp-mode-hook 'auto-fill-mode)
 
 
 ;;-- Scheme --;;

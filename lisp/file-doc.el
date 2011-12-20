@@ -155,6 +155,6 @@ a boolean value."
 	    ;; necessary.
 	    (and (indent-doc-line? major-mode)
 	      (indent-for-tab-command))
-	    ;; Final newline
-	    (insert "\n")))))
+	    ;; Final newlines
+	    (insert "\n\n")))))
   

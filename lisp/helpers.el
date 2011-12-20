@@ -1,3 +1,14 @@
+;;----------------------------------------------------------------------
+;; File helpers.el
+;; Written by Chris Frisz
+;; 
+;; Created 20 Dec 2011
+;; Last modified 20 Dec 2011
+;; 
+;; This file contains a set of helper functions helpful throughout
+;; Emacs Lisp coding.
+;; ----------------------------------------------------------------------
+
 (defun empty? (e)
   "A simple predicate to test if the argument is the empty list."
   (eq e ()))
