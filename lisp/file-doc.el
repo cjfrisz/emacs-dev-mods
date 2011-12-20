@@ -10,11 +10,12 @@
 	 (decorator (make-string 
 		     decorator-seq-len 
 		     (string-to-char block-comment-decorator))))
-    (let* ((comment-start (when comment-multi-line
-			    (substring 
-			     comment-start 
-			     0 
-			     (- (length comment-start) 1))))
+    (let* ((comment-start (if comment-multi-line
+			      (substring 
+			       comment-start 
+			       0 
+			       (- (length comment-start) 1))
+			    comment-start))
 	   (comment-end (if comment-multi-line
 			    (substring comment-end 
 				       1 
