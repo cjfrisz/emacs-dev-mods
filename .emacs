@@ -46,7 +46,7 @@
 (display-time)
 
 ;; Date format string
-(set 'custom-date-format "%e %b %Y")
+(set 'cjfrisz-date-format "%e %b %Y")
 
 ;; Set fill-column value explicitly
 (set 'fill-column 70)
@@ -76,16 +76,13 @@
 ;; Set the block comment beginning-of-line string
 (custom-set-variables '(c-block-comment-prefix "* "))
 
-;;-- C mode common hooks
 
-;; I prefer the '*' character for the block comment decorators in
-;; languages with C-like, multi-line block comments.
-(add-hook 'before-change-hook 
-	  '(lambda () 
-	     (let ((cur-decorator block-comment-decorator))
-	       (if (eq major-mode 'c-mode)
-		   (set 'block-comment-decorator "*")
-		 (set 'block-comment-decorator cur-decorator)))))
+;;-- Lisp --;;
+
+;; Indentation rules
+;; I really don't know why these aren't defined correctly
+(put 'case 'lisp-indent-function 1)
+(put 'if 'lisp-indent-function 3)
 
 
 ;;-- Scheme --;;
