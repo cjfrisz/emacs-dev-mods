@@ -153,7 +153,7 @@ a boolean value."
 	    ;; To get the last line indented correctly in certain
 	    ;; modes (i.e. C), we have to explicitly indent here when
 	    ;; necessary.
-	    (and (indent-doc-line? major-mode)
+	    (when (indent-doc-line? major-mode)
 	      (indent-for-tab-command))
 	    ;; Final newlines
 	    (insert "\n\n")))))

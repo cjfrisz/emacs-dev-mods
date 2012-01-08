@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 20 Dec 2011
+;; Last modified  8 Jan 2012
 ;; 
 ;; Defines a function, update-modify, to update the modification date
 ;; according to the standard format used by insert-file-doc. This can
@@ -13,7 +13,7 @@
 (defun update-modify ()
   "Updates the modified date according to my standard format."
   (let ((modify-regexp 
-	 "Last modified [[:digit:]]+ [[:alpha:]]+ [[:digit:]]*")
+	 "Last modified[[:space:]]+[[:digit:]]+ [[:alpha:]]+ [[:digit:]]*")
 	(date (if (boundp 'cjfrisz-date-format)
 		  (format-time-string cjfrisz-date-format)
 		(current-time-string)))
