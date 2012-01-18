@@ -224,6 +224,7 @@
 (put 'when 'scheme-indent-function 1)
 (put 'unless 'scheme-indent-function 1)
 (put 'module 'scheme-indent-function 2)
+(put 'values 'scheme-indent-function 0)
 
 ;; Replace the word lambda with the unicode character for the
 ;; lower-case Greek letter
