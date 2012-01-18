@@ -125,6 +125,9 @@
 (autoload 'balanced-on "balanced" "Turn on balanced ``mode''" t)
 (add-hook 'scheme-mode-hook 'balanced-on)
 
+;; Balanced paren mode for Inferior Scheme process
+(add-hook 'inferior-scheme-mode-hook 'balanced-on)
+
 ;; Use auto-fill-mode for Scheme
 (add-hook 'scheme-mode-hook 'auto-fill-mode)
 
