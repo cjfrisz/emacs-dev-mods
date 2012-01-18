@@ -110,6 +110,9 @@
 ;; Auto-fill-mode for Emacs Lisp is nice, too
 (add-hook 'emacs-lisp-mode-hook 'auto-fill-mode)
 
+;; Balanced paren mode for Emacs Lisp
+(add-hook 'emacs-list-mode-hook 'balanced-on)
+
 
 ;;-- Scheme --;;
 
@@ -119,7 +122,7 @@
 ;; IU Scheme setup
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
 (autoload 'run-scheme "iuscheme" "Switch to interactive Scheme buffer." t)
-
+ 
 ;; Insane Scheme setup (balanced paren mode)
 (autoload 'balanced-toggle "balanced" "Toggle balanced ``mode''" t)
 (autoload 'balanced-on "balanced" "Turn on balanced ``mode''" t)
