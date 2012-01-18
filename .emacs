@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 20 Dec 2011
+;; Last modified 18 Jan 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -76,10 +76,6 @@
  	`((".*" . ,auto-save-directory)))
   (setq auto-save-file-name-transforms
  	`((".*" ,auto-save-directory t))))
-
-;; --Experimental--
-;; Add a file header for all new files
-(add-hook 'find-file-not-found-hooks 'insert-file-doc)
 
 ;; Highlight parentheses in all modes
 ;; Taken from the EmacsWiki
