@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 20 Dec 2011
+;; Last modified 25 Jan 2012
 ;; 
 ;; file-doc.el contains the function insert-file-doc and its helpers
 ;; for inserting basic file-level documentation into any given file.
@@ -32,10 +32,14 @@ boolean argument value"
 			  (sub1 (length comment-start))))
    ;; If there's no multi-line comments, the comment-start value
    ;; will do just fine.
+   ((string-equal (substring comment-start 
+			     (- (length comment-start) 1))
+		  " ")
+    (substring comment-start 0 (- (length comment-start) 1)))
    (comment-start))))
-
+  
 (defun get-comment-start-special (&optional cur-mode)
-  "Get the comment-start value for some modes for which I have
+  "Get the comment-start value for some modes for which I have 
 particular tastes."
   (let ((cur-mode (or cur-mode major-mode)))
     (cond
