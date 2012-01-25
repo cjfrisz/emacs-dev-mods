@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 18 Jan 2012
+;; Last modified 25 Jan 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -16,16 +16,16 @@
 (add-to-list 'load-path user-emacs-directory)
 
 ;;-- Global mode imports
-(require 'ess-site)
-(require 'haskell-mode)
+;; (require 'ess-site)
+;; (require 'haskell-mode)
 
 ;;-- User-local mode imports
 
 ;; Rust mode import
-(add-to-list 'load-path 
-	     (concat user-emacs-directory
-		     (convert-standard-filename "rust-mode/")))
-(require 'rust-mode)
+;; (add-to-list 'load-path 
+;; 	     (concat user-emacs-directory
+;; 		     (convert-standard-filename "rust-mode/")))
+;; (require 'rust-mode)
 
 ;; Add "lisp" for custom-defined elisp functions
 (add-to-list 'load-path
@@ -184,7 +184,7 @@
 ;;-- Scheme --;;
 
 ;; Use petite as the default Scheme program
-(custom-set-variables '(scheme-program-name "petite"))
+;; (custom-set-variables '(scheme-program-name "petite"))
 
 ;; IU Scheme setup
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
@@ -234,3 +234,6 @@
    (list (cons "\\(lambda\\)" 'lambda))))
 
 (add-hook 'scheme-mode-hook 'scheme-unicode)
+
+;; Let's also do unicode lambdas in inferior Scheme mode
+(add-hook 'inferior-scheme-mode-hook 'scheme-unicode)
