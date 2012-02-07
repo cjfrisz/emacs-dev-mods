@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified  5 Feb 2012
+;; Last modified  7 Feb 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -14,18 +14,6 @@
 
 ;; Add the user directory to the load-path variable
 (add-to-list 'load-path user-emacs-directory)
-
-;;-- Global mode imports
-(require 'ess-site)
-(require 'haskell-mode)
-
-;;-- User-local mode imports
-
-;; Rust mode import
-(add-to-list 'load-path 
-	     (concat user-emacs-directory
-		     (convert-standard-filename "rust-mode/")))
-(require 'rust-mode)
 
 ;; Add "lisp" for custom-defined elisp functions
 (add-to-list 'load-path
@@ -251,3 +239,16 @@
 ;; Clojure needs some help with indenting
 (put 'match 'clojure-indent-function 1)
 (put 'if 'clojure-indent-function 0) ;; Really??
+
+;;--Haskell--;;
+(require 'haskell-mode)
+
+;;--R--;;
+(require 'ess-site)
+
+;;--Rust--;;
+(add-to-list 'load-path 
+	     (concat user-emacs-directory
+		     (convert-standard-filename "rust-mode/")))
+(require 'rust-mode)
+
