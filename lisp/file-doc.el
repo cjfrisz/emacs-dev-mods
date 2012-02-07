@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 20 Dec 2011
+;; Last modified  3 Feb 2012
 ;; 
 ;; file-doc.el contains the function insert-file-doc and its helpers
 ;; for inserting basic file-level documentation into any given file.
@@ -40,7 +40,8 @@ particular tastes."
   (let ((cur-mode (or cur-mode major-mode)))
     (cond
      ((or (eq cur-mode 'emacs-lisp-mode)
-	  (eq cur-mode 'scheme-mode))
+	  (eq cur-mode 'scheme-mode)
+	  (eq cur-mode 'clojure-mode))
       ";;"))))
 
 
