@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 18 Jan 2012
+;; Last modified  5 Feb 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -231,6 +231,23 @@
 (defun scheme-unicode ()
   (interactive)
   (substitute-patterns-with-unicode
-   (list (cons "\\(lambda\\)" 'lambda))))
+   (list (cons "\\(lambda\\)" 'lambda)
+         (cons "\\(alpha\\)" 'alpha)
+         (cons "\\(beta\\)" 'beta))))
 
 (add-hook 'scheme-mode-hook 'scheme-unicode)
+
+;;--Clojure--;;
+(add-to-list 'load-path 
+	     (concat user-emacs-directory
+		     (convert-standard-filename "clojure-mode/")))
+
+(require 'clojure-mode)
+
+(add-hook 'clojure-mode-hook 'balanced-on)
+
+(add-hook 'clojure-mode-hook 'auto-fill-mode)
+
+;; Clojure needs some help with indenting
+(put 'match 'clojure-indent-function 1)
+(put 'if 'clojure-indent-function 0) ;; Really??
