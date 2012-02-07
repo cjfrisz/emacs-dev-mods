@@ -1,0 +1,6 @@
+[submodule "clojure-mode"]
+	path = clojure-mode
+	url = git://github.com/technomancy/clojure-mode.git
+[submodule "rust-mode"]
+	path = rust-mode
+	url = git://github.com/marijnh/rust-mode.git
