@@ -172,7 +172,7 @@
 ;;-- Scheme --;;
 
 ;; Use petite as the default Scheme program
-(custom-set-variables '(scheme-program-name "petite"))
+;; (custom-set-variables '(scheme-program-name "petite"))
 
 ;; IU Scheme setup
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
@@ -225,6 +225,9 @@
 
 (add-hook 'scheme-mode-hook 'scheme-unicode)
 
+;; Let's also do unicode lambdas in inferior Scheme mode
+(add-hook 'inferior-scheme-mode-hook 'scheme-unicode)
+
 ;;--Clojure--;;
 (add-to-list 'load-path 
 	     (concat user-emacs-directory
@@ -251,4 +254,3 @@
 	     (concat user-emacs-directory
 		     (convert-standard-filename "rust-mode/")))
 (require 'rust-mode)
-

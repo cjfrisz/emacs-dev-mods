@@ -32,10 +32,14 @@ boolean argument value"
 			  (sub1 (length comment-start))))
    ;; If there's no multi-line comments, the comment-start value
    ;; will do just fine.
+   ((string-equal (substring comment-start 
+			     (- (length comment-start) 1))
+		  " ")
+    (substring comment-start 0 (- (length comment-start) 1)))
    (comment-start))))
-
+  
 (defun get-comment-start-special (&optional cur-mode)
-  "Get the comment-start value for some modes for which I have
+  "Get the comment-start value for some modes for which I have 
 particular tastes."
   (let ((cur-mode (or cur-mode major-mode)))
     (cond
