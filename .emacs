@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified  7 Feb 2012
+;; Last modified 14 Feb 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -141,6 +141,10 @@
                                                (cdr x)))
           patterns))
 
+;; Load up paredit mode
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+
 
 ;;--------------------------------;;
 ;;-- Language-specific settings --;;
@@ -149,7 +153,14 @@
 ;;-- C/C++ --;;
 
 ;; Set the block comment beginning-of-line string
-(custom-set-variables '(c-block-comment-prefix "* "))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(c-block-comment-prefix "* ")
+ '(erc-nick "cjfrisz")
+ '(erc-server "irc.soic.indiana.edu"))
 
 ;; I prefer auto-fill-mode for C/C++
 (add-hook 'c-mode-common-hook 'auto-fill-mode)
@@ -165,8 +176,8 @@
 ;; Auto-fill-mode for Emacs Lisp is nice, too
 (add-hook 'emacs-lisp-mode-hook 'auto-fill-mode)
 
-;; Balanced paren mode for Emacs Lisp
-(add-hook 'emacs-list-mode-hook 'balanced-on)
+;; Experimental: replacing balanced mode with paredit
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode +1)))
 
 
 ;;-- Scheme --;;
@@ -178,13 +189,8 @@
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
 (autoload 'run-scheme "iuscheme" "Switch to interactive Scheme buffer." t)
  
-;; Insane Scheme setup (balanced paren mode)
-(autoload 'balanced-toggle "balanced" "Toggle balanced ``mode''" t)
-(autoload 'balanced-on "balanced" "Turn on balanced ``mode''" t)
-(add-hook 'scheme-mode-hook 'balanced-on)
-
-;; Balanced paren mode for Inferior Scheme process
-(add-hook 'inferior-scheme-mode-hook 'balanced-on)
+;; Experimental: replacing balanced mode with paredit
+(add-hook 'scheme-mode-hook (lambda () (paredit-mode +1)))
 
 ;; Use auto-fill-mode for Scheme
 (add-hook 'scheme-mode-hook 'auto-fill-mode)
@@ -235,7 +241,8 @@
 
 (require 'clojure-mode)
 
-(add-hook 'clojure-mode-hook 'balanced-on)
+;; Experimental: replacing balanced mode with paredit
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
 (add-hook 'clojure-mode-hook 'auto-fill-mode)
 
