@@ -145,6 +145,9 @@
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
+;; Add paredit mode for SLIME
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
 
 ;;--------------------------------;;
 ;;-- Language-specific settings --;;
@@ -176,7 +179,7 @@
 ;; Auto-fill-mode for Emacs Lisp is nice, too
 (add-hook 'emacs-lisp-mode-hook 'auto-fill-mode)
 
-;; Experimental: replacing balanced mode with paredit
+;; Enable paredit mode for Emacs Lisp
 (add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode +1)))
 
 
@@ -189,7 +192,7 @@
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
 (autoload 'run-scheme "iuscheme" "Switch to interactive Scheme buffer." t)
  
-;; Experimental: replacing balanced mode with paredit
+;; Enable paredit mode for Scheme
 (add-hook 'scheme-mode-hook (lambda () (paredit-mode +1)))
 
 ;; Use auto-fill-mode for Scheme
@@ -241,7 +244,7 @@
 
 (require 'clojure-mode)
 
-;; Experimental: replacing balanced mode with paredit
+;; Enable paredit mode for Clojure
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
 (add-hook 'clojure-mode-hook 'auto-fill-mode)
@@ -251,7 +254,7 @@
 (put 'if 'clojure-indent-function 0) ;; Really??
 
 ;;--Haskell--;;
-(require 'haskell-mode)
+;; (require 'haskell-mode)
 
 ;;--R--;;
 (require 'ess-site)
