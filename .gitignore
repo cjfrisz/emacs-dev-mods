@@ -1,0 +1,5 @@
+# Don't want to keep around the auto-save stuff
+auto-save-list/
+
+# Swank is site-specific and should be installed with leiningen
+swank/
