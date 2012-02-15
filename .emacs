@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified  7 Feb 2012
+;; Last modified 13 Feb 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -141,6 +141,9 @@
                                                (cdr x)))
           patterns))
 
+;; Proof General
+(load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+
 
 ;;--------------------------------;;
 ;;-- Language-specific settings --;;
@@ -172,7 +175,7 @@
 ;;-- Scheme --;;
 
 ;; Use petite as the default Scheme program
-;; (custom-set-variables '(scheme-program-name "petite"))
+(custom-set-variables '(scheme-program-name "petite"))
 
 ;; IU Scheme setup
 (autoload 'scheme-mode "iuscheme" "Major mode for Scheme." t)
