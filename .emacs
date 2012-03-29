@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 14 Feb 2012
+;; Last modified 29 Mar 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -142,7 +142,10 @@
           patterns))
 
 ;; Proof General
+(add-to-list 'load-path "/usr/bin")
 (load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+;; Hack for terminal emacs
+(global-set-key (kbd "C-c RET") 'proof-goto-point)
 
 ;; Load up paredit mode
 (autoload 'paredit-mode "paredit"
@@ -267,3 +270,8 @@
 	     (concat user-emacs-directory
 		     (convert-standard-filename "rust-mode/")))
 (require 'rust-mode)
+
+;;--LaTeX--;;
+
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
