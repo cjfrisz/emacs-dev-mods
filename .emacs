@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 29 Mar 2012
+;; Last modified 30 Mar 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -253,7 +253,11 @@
 ;; Enable paredit mode for Clojure
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
+;; Enable auto-fill mode
 (add-hook 'clojure-mode-hook 'auto-fill-mode)
+;; Due to syntax differences with other Lisp-like languages, Clojure
+;; is better suited to a fill-column value of 80
+(add-hook 'clojure-mode-hook (lambda () (set-fill-column 80)))
 
 ;; Clojure needs some help with indenting
 (put 'match 'clojure-indent-function 1)
