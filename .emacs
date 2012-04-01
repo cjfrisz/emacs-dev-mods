@@ -3,7 +3,7 @@
 ;; Written by Chris Frisz
 ;; 
 ;; Created 17 Dec 2011
-;; Last modified 30 Mar 2012
+;; Last modified  1 Apr 2012
 ;; 
 ;; Initialization file for Emacs.
 ;;----------------------------------------------------------------------
@@ -153,6 +153,9 @@
 
 ;; Add paredit mode for SLIME
 (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
+;; Ensure that there's a newline at the end of a file
+(setq require-final-newline t)
 
 
 ;;--------------------------------;;
